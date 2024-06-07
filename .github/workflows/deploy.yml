@@ -39,5 +39,6 @@ jobs:
             npm install;
             npm run prd;
           "
+
       - name: delete id_rsa # 删除 id_rsa
         run: rm -rf ~/.ssh/id_rsa
