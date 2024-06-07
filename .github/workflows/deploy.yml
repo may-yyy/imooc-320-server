@@ -16,13 +16,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2 # 第三方的 action
-
       - name: set id_rsa # 设置 id_rsa
         run: |
           mkdir -p ~/.ssh/
           echo "${{secrets.MY_ID_RSA}}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-#          chmod 777 ~/.ssh/known_hosts
           ssh-keyscan 192.168.178.128 >> ~/.ssh/known_hosts
 
       - name: deploy # 自动发布
