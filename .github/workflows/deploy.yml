@@ -24,7 +24,6 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan 192.168.178.128 >> ~/.ssh/known_hosts
           chmod 777 known_hosts
-          
 
       - name: deploy # 自动发布
         run: |
