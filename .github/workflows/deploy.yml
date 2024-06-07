@@ -22,6 +22,22 @@ jobs:
           mkdir -p ~/.ssh/
           echo "{{secrets.MY_ID_RSA}}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          # ssh-keyscan 192.168.178.128 >> ~/.ssh/known_hosts
+          ssh-keyscan 192.168.178.128 >> ~/.ssh/known_hosts
           # chmod 777 known_hosts
 
+#      - name: deploy # 自动发布
+#        run: |
+#          ssh root@192.168.178.128 "
+#            # 注意：服务器已经git clone 代码到 /root/myblog/imooc-320-server 目录
+#
+#            cd /root/myblog/imooc-320-server;
+#            git checkout . ;
+#            git checkout main;
+#            git pull origin main # 重新下载最新的代码
+#
+#            # 重启服务
+#            npm install;
+#            npm run prd;
+#          "
+#      - name: delete id_rsa # 删除 id_rsa
+#        run: rm -rf ~/.ssh/id_rsa
